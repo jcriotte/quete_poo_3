@@ -20,12 +20,26 @@ require_once 'ResidentialWay.php';
 
 $bike = new Bicycle($color = 'blue');
 var_dump($bike);
-
-$jcCar = new Car($color = 'red', $nbSeats = 2, $energy = 'essence');
+?> 
+<h1>Instanciation d'une voiture</h1>
+<?php
+try {
+    $jcCar = new Car($color = 'red', $nbSeats = 2, $energy = 'essence', $parkBrake = true);
+    var_dump($jcCar);
+    echo $jcCar->start();
+} catch(Exception $e) {
+    echo "Exception received  : ". $e->getMessage() . "n";
+} finally {
+    echo "End !\n";
+}
+?>
+<h1>Fin de l'instanciation</h1>
+<?php
 var_dump($jcCar);
-
+?>
+<h1>Attention au départ !</h1>
+<?php
 $bike->forward();
-echo $jcCar->start();
 $jcCar->forward();
 
 var_dump($bike);
@@ -43,15 +57,20 @@ echo $jcCar->brake();
 var_dump($bike);
 var_dump($jcCar);
 
-$truck1 = new Truck('red', 3, 'fuel', 150);
+$truck1 = new Truck('red', 3, 'fuel', true, 150);
 var_dump($truck1);
 
-$truck2 = new Truck('yellow', 2, 'fuel', 50);
+$truck2 = new Truck('yellow', 2, 'fuel', true, 50);
 var_dump($truck2);
 
+try {
 echo $truck1->start();
 echo $truck2->start();
-
+} catch(Exception $e) {
+    echo "Exception received  : ". $e->getMessage() . "n";
+} finally {
+    echo "End !\n";
+}
 $truck2->setCharged(true);
 $truck1->setCharged(false);
 

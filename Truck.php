@@ -6,8 +6,8 @@ class Truck extends Car {
     private int $storageCapacity;
     private bool $charged;
 
-    public function __construct(string $color, int $nbSeats, string $energy, int $storageCapacity) {
-        parent::__construct($color, $nbSeats, $energy);
+    public function __construct(string $color, int $nbSeats, string $energy, bool $parkBrake, int $storageCapacity) {
+        parent::__construct($color, $nbSeats, $energy, $parkBrake);
         $this->storageCapacity = $storageCapacity;
     }
 
