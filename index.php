@@ -17,6 +17,7 @@ require_once 'HighWay.php';
 require_once 'MotorWay.php';
 require_once 'PedestrianWay.php';
 require_once 'ResidentialWay.php';
+require_once 'Speedometer.php';
 
 $bike = new Bicycle($color = 'blue');
 var_dump($bike);
@@ -106,6 +107,13 @@ var_dump($RW1->getCurrentVehicles());
 $RW1->addVehicle($bike);
 var_dump($RW1->getCurrentVehicles());
 
+?><h1>Convertions</h1>
+
+<?php
+echo "convertion 10 km en miles : " . Speedometer::convertKmToMiles(10);?>
+<br>
+<?php
+echo "convertion de 6.21 miles en km : " . Speedometer::convertMilesToKm(6.21);
 ?>
         <p>Un paragraphe</p>
     </body>
