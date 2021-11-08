@@ -28,5 +28,4 @@ class Truck extends Car {
     }
 }
 
-
 ?>

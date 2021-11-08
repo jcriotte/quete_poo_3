@@ -20,6 +20,8 @@ require_once 'ResidentialWay.php';
 
 $bike = new Bicycle($color = 'blue');
 var_dump($bike);
+$bike->switchOn();
+var_dump($bike);
 ?> 
 <h1>Instanciation d'une voiture</h1>
 <?php
@@ -27,6 +29,8 @@ try {
     $jcCar = new Car($color = 'red', $nbSeats = 2, $energy = 'essence', $parkBrake = true);
     var_dump($jcCar);
     echo $jcCar->start();
+    $jcCar->switchOn();
+    var_dump($jcCar);
 } catch(Exception $e) {
     echo "Exception received  : ". $e->getMessage() . "n";
 } finally {
@@ -41,13 +45,14 @@ var_dump($jcCar);
 <?php
 $bike->forward();
 $jcCar->forward();
-
+$bike->switchOn();
 var_dump($bike);
 var_dump($jcCar);
 
 $bike->brake();
 $jcCar->brake();
-
+$bike->switchOff();
+$jcCar->switchOff();
 var_dump($bike);
 var_dump($jcCar);
 
@@ -75,6 +80,8 @@ $truck2->setCharged(true);
 $truck1->setCharged(false);
 
 $truck1->forward();
+$truck1->switchOn();
+$truck2->switchOn();
 var_dump($truck1);
 var_dump($truck2);
 
